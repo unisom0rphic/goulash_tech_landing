@@ -147,6 +147,9 @@
 
   <footer class="snap-section">
     <div class="content footer-content">
+      <div class="avatar-container">
+        <img src="/avatar.jpg" alt="мое фото)" class="avatar" />
+      </div>
       <p>📫 Контакты</p>
       <div class="contacts">
         <a href="mailto:vorobyev.dmitriy.a@yandex.ru">email</a>
@@ -297,5 +300,21 @@
   .contacts a {
     color: #b8b8ff;
     text-decoration: none;
+  }
+
+  .avatar-container {
+    margin-bottom: 1.5rem;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+  }
+  .avatar:hover {
+    transform: scale(1.05);
   }
 </style>

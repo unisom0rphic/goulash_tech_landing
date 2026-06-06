@@ -140,7 +140,7 @@
     cursor: pointer;
   }
   .project-img {
-    width: 100%;
+    width: 120%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 1rem;
