@@ -43,8 +43,8 @@
       </p>
       `,
       tech: ['SvelteKit', 'Redis', 'aiogram', 'OpenRouter', 'FastAPI'],
-      arch: '🧠 LLM → 📦 API → 💾 DB → ⚡ Frontend',
-      github: '#',
+      quote: `Планировал архитектуру, разрабатывал фронтенд и AI-модуль`,
+      github: 'https://github.com/unisom0rphic/enigma',
       image: '/enigma.png',
       architecture: {
         title: 'Архитектура',
@@ -80,12 +80,16 @@
           (отображаются в виде канбан-доски). Добавление новых участников 
           возможно по <span class="accent">ссылке-приглашению.</span> 
           <span class="accent">ИИ</span> (локально развернутый LLM 
-          <span class="accent">Vikhr)</span> помогает в генерации отчетов и построении графиков.
+          <span class="accent">Vikhr</span>) помогает в генерации отчетов и построении графиков.
         </p>
       `,
       tech: ['FastAPI', 'llama.cpp', 'Docker', 'PostgreSQL', 'SvelteKit'],
-      arch: '🔍 Web → 🤖 LLM (JSON) → 🗄️ DB → 🎨 SPA',
-      github: '#',
+      quote: `<p>
+        Занимался планированием архитектуры, фронтендом, интеграцием с бэкендом, 
+        исправлением возникших багов и добавлением ручек, формулировкой ТЗ для членов команды
+        бэкенда.
+        </p>`,
+      github: 'https://github.com/50sohight/StartFlow',
       image: '/startflow.png',
       architecture: {
         title: 'Архитектура',
@@ -122,9 +126,6 @@
     <div class="content">
       <h1>Привет, я - <span class="accent">димон)</span></h1>
       <div class="bio">
-        <p style="margin-bottom: 0.5rem;">
-          ??
-        </p>
         <p>
             Ниже представлены два проекта, которые максимально подходят под профиль вакансии - построены для решения 
             <span class="accent">настоящих</span> задач.
@@ -139,7 +140,7 @@
       title={project.title}
       description={project.description}
       tech={project.tech}
-      arch={project.arch}
+      quote={project.quote}
       github={project.github}
       image={project.image}
     />
@@ -339,14 +340,5 @@
   .contacts a {
     color: #b8b8ff;
     text-decoration: none;
-  }
-
-  .quote {
-    background: rgba(0,0,0,0.6);
-    padding: 0.8rem 1rem;
-    border-left: 3px solid #b8b8ff;
-    font-family: monospace;
-    font-size: 1rem;
-    margin: 1.5rem 0;
   }
 </style>

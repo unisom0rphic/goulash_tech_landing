@@ -1,5 +1,5 @@
 <script>
-  let { title, description, tech, arch, github, image } = $props();
+  let { title, description, tech, quote, github, image } = $props();
   let isFullscreen = $state(false);
 
   function openFullscreen() {
@@ -31,8 +31,8 @@
           <span>{t}</span>
         {/each}
       </div>
-      <div class="arch">
-        {arch}
+      <div class="quote">
+        {@html quote}
       </div>
       <div class="links">
         <a href={github} class="btn">GitHub →</a>
@@ -99,7 +99,7 @@
     font-size: 0.8rem;
     font-weight: 500;
   }
-  .arch {
+  .quote {
     background: rgba(0,0,0,0.6);
     padding: 0.8rem 1rem;
     border-left: 3px solid #b8b8ff;
