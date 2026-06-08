@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import ProjectSection from '$lib/components/ProjectSection.svelte';
   import ArchitectureSection from '$lib/components/ArchitectureSection.svelte';
+	import SpawningBalls from '$lib/components/SpawningBalls.svelte';
 
   let scrollY = 0;
   let bgOffset = 0;
@@ -54,15 +55,16 @@
           Поступающие письма автоматически парсятся благодаря IMAP-серверу.
           <span class="accent">AI-модуль</span> извлекает ключевую информацию 
           из email и использует документацию продукции на сайте компании для формирования ответа. 
-          Полученная документация кэшируется в FAISS для семантического поиска.
-          При помощи NER извлекается вся конфиденциальная информация (телефон, email), а письмо
-          обрабатывается LLM через API (OpenRouter), после чего изъятая информация подставляется обратно
+          Полученная документация кэшируется в <span class="accent">FAISS</span> для семантического поиска.
+          При помощи <span class="accent">NER</span> извлекается вся конфиденциальная информация (телефон, email), а письмо
+          обрабатывается <span class="accent">LLM</span> через API <span class="accent">(OpenRouter),</span> после чего изъятая информация подставляется обратно
           в тело письма.
           Сформированные ответы сохраняются в <span class="accent">Redis</span> и 
-          читаются телеграм-ботом для автоматического уведомления сотрудников в телеграм-канале. 
-          Сотрудник техподдержки при необходимости вносит модификации и принимает окончательное 
-          решение. Письма автоматически клиенту отправляются после 
-          закрытия тикета через SMTP без надобности покидать платформу.
+          читаются <span class="accent">телеграм-ботом</span> для автоматического 
+          уведомления сотрудников в телеграм-канале. Сотрудник техподдержки при 
+          необходимости вносит модификации и принимает окончательное 
+          решение. Письма отправляются клиенту после 
+          закрытия тикета через <span class="accent">SMTP</span> без надобности покидать платформу.
        </p> 
         `,
         image: '/arch-enigma.png'
@@ -73,11 +75,12 @@
       description: `
         <p>
           Платформа помогает новым членам команды легче 
-          адаптироваться и ориентироваться в проекте. 
+          <span class="accent">адаптироваться</span> и ориентироваться в проекте. 
           Каждый проект содержит описание, список задач и колонок 
           (отображаются в виде канбан-доски). Добавление новых участников 
-          возможно по ссылке-приглашению. ИИ (локально развернутый LLM Vikhr) 
-          помогает в генерации отчетов и построении графиков.
+          возможно по <span class="accent">ссылке-приглашению.</span> 
+          <span class="accent">ИИ</span> (локально развернутый LLM 
+          <span class="accent">Vikhr)</span> помогает в генерации отчетов и построении графиков.
         </p>
       `,
       tech: ['FastAPI', 'llama.cpp', 'Docker', 'PostgreSQL', 'SvelteKit'],
@@ -111,6 +114,7 @@
       <a href="#about">About</a>
       <a href="#система-оптимизации-работы-службы-поддержки">EnigmaHack</a>
       <a href="#startflow">Startflow</a>
+      <a href="#контакты">Contacts</a>
     </nav>
   </header>
 
@@ -118,8 +122,9 @@
     <div class="content">
       <h1>Привет, я - <span class="accent">димон)</span></h1>
       <div class="bio">
-        <p>Интегрирую AI в бизнес-процессы</p>
-        <p>Мои технологии: <span class="accent">SvelteKit / Python / PostgreSQL / AI</span></p>
+        <p style="margin-bottom: 0.5rem;">
+          ??
+        </p>
         <p>
             Ниже представлены два проекта, которые максимально подходят под профиль вакансии - построены для решения 
             <span class="accent">настоящих</span> задач.
@@ -146,21 +151,55 @@
   {/each}
 
   <footer class="snap-section">
-    <div class="content footer-content">
-      <div class="avatar-container">
-        <img src="/avatar.jpg" alt="мое фото)" class="avatar" />
-      </div>
-      <p>📫 Контакты</p>
-      <div class="contacts">
-        <a href="mailto:vorobyev.dmitriy.a@yandex.ru">email</a>
-        <a href="https://github.com/unisom0rphic">github</a>
-        <a href="https://t.me/@wdrnr">telegram</a>
+    <div class="footer-wrapper">
+      <SpawningBalls />
+      <div class="footer-content">
+        <p>📫 Контакты</p>
+        <div class="contacts" id="контакты">
+          <a href="mailto:vorobyev.dmitriy.a@yandex.ru">email</a>
+          <a href="https://github.com/unisom0rphic">github</a>
+          <a href="https://t.me/@wdrnr">telegram</a>
+        </div>
       </div>
     </div>
   </footer>
 </main>
 
 <style>
+  /* шарики) */
+  footer {
+      min-height: 60vh;
+      position: relative;
+    }
+    .footer-wrapper {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      overflow: hidden;
+    }
+    .footer-content {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3; /* выше шаров и аватарки */
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 2rem;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .contacts {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+    .contacts a {
+      color: #b8b8ff;
+      text-decoration: none;
+    }
+
   :global(html), :global(body) {
     overflow: hidden;
     height: 100%;
@@ -302,19 +341,12 @@
     text-decoration: none;
   }
 
-  .avatar-container {
-    margin-bottom: 1.5rem;
-  }
-  .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
-  }
-  .avatar:hover {
-    transform: scale(1.05);
+  .quote {
+    background: rgba(0,0,0,0.6);
+    padding: 0.8rem 1rem;
+    border-left: 3px solid #b8b8ff;
+    font-family: monospace;
+    font-size: 1rem;
+    margin: 1.5rem 0;
   }
 </style>
