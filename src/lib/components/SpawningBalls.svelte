@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
 
   let container = $state(null);
   let containerWidth = $state(0);
@@ -154,7 +155,7 @@
 >
   <!-- Аватарка-кнопка -->
   <button class="avatar-btn" onclick={onAvatarClick} type="button">
-    <img src="/avatar.jpg" alt="Моё фото" class="avatar-img" />
+    <img src="{base}/avatar.jpg" alt="Моё фото" class="avatar-img" />
   </button>
 
   {#each balls as ball (ball.id)}
@@ -166,7 +167,7 @@
       tabindex="0"
       aria-label="Перетащи меня"
     >
-      <img src="/photos/photo{ball.id + 1}.jpg" alt="Фото {ball.id + 1}" draggable="false" />
+      <img src="{base}/photos/photo{ball.id + 1}.jpg" alt="Фото {ball.id + 1}" draggable="false" />
     </div>
   {/each}
 </div>
