@@ -3,6 +3,7 @@
   import ProjectSection from '$lib/components/ProjectSection.svelte';
   import ArchitectureSection from '$lib/components/ArchitectureSection.svelte';
 	import SpawningBalls from '$lib/components/SpawningBalls.svelte';
+  import { base } from '$app/paths';
 
   let scrollY = 0;
   let bgOffset = 0;
@@ -45,7 +46,7 @@
       tech: ['SvelteKit', 'Redis', 'aiogram', 'OpenRouter', 'FastAPI'],
       quote: `Планировал архитектуру, разрабатывал фронтенд и AI-модуль`,
       github: 'https://github.com/unisom0rphic/enigma',
-      image: '/enigma.png',
+      image: `${base}/enigma.png`,
       architecture: {
         title: 'Архитектура',
         description: `
@@ -67,7 +68,7 @@
           закрытия тикета через <span class="accent">SMTP</span> без надобности покидать платформу.
        </p> 
         `,
-        image: '/arch-enigma.png'
+        image: `${base}/arch-enigma.png`
       }
     },
     {
@@ -90,7 +91,7 @@
         бэкенда.
         </p>`,
       github: 'https://github.com/50sohight/StartFlow',
-      image: '/startflow.png',
+      image: `${base}/startflow.png`,
       architecture: {
         title: 'Архитектура',
         description: `
@@ -102,14 +103,14 @@
           Фронтенд - многостраничное приложение с SSR и гидратацией (для производительности).
         </p>
         `,
-        image: '/arch-startflow.png'
+        image:`${base}/arch-startflow.png` 
       }
     }
   ];
 </script>
 
 <main>
-  <div class="global-bg" style="height: 200%; background-image: url('/background.jpg');"></div>
+  <div class="global-bg" style="height: 200%; background-image: url('{base}/background.jpg');"></div>
   <div class="global-overlay"></div>
 
   <header>
